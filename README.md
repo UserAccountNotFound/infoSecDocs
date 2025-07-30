@@ -1,11 +1,11 @@
-# DocSite
+# infoSec documents
 A database of regulatory documents in the field of Information security and engineering and technical security equipment, with the ability to export templated documents to PDF
 
 
 ## preInstall
 
 ```bash
-apt install sudo git curl g++ gcc libnss3 libasound2 libnspr4
+sudo apt install sudo git curl g++ gcc libnss3 libasound2 libnspr4
 ```
 
 Устанавливаем корневые  довенные сертивикаты сертификаты и CRL к ним (на всякий случай)
@@ -99,3 +99,15 @@ openssl s_client -connect git.esu.gsp.local:443 -showcerts </dev/null 2>/dev/nul
 sudo cp git-esu-gsp-local.crt /usr/local/share/ca-certificates/
 sudo update-ca-certificates
 ```
+
+
+git remote add gitlab http://git.netgroup.su/msp/docsite.git
+
+отправка изменений в оба-два
+git push origin main  # в GitHub
+git push gitlab main  # в Gitlab
+
+получение изменений
+git pull origin main  # из GitHub
+# или
+git pull gitlab main  # из GitLab
