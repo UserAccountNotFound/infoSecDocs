@@ -1,0 +1,5 @@
+nav:
+  - 'Политики': 'politics'
+  - 'Регламенты': 'regulations'
+  - 'Инструкции': 'instructions'
+  - ...

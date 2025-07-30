@@ -1,0 +1,8 @@
+.venv/
+.cache/
+.github/
+
+dist/
+public/
+distribute/
+examples/

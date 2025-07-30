@@ -1,0 +1,7 @@
+nav:
+  - 'Обработка коммерческой тайны': 'pts.md'
+  - 'Положение о режиме коммерческой тайны и иной конфиденциальной информации': 'regulation_of_commercial_secrecy.md'
+  - 'Перечень КТ-КИ-ПД': 'list_of_confidential_information.md'
+  - 'Инструкция по конфиденциальному делопроизводству': 'instructions_for_working_with_confidential_documents.md'
+  - 'Инструкция о передаче информации, КТ-КИ органам государственной власти и контрагентам': 'instructions_on_the_transfer_of_information_to_government_and_contractors.md'
+  - ...
