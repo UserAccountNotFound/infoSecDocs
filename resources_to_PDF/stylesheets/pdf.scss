@@ -3,11 +3,20 @@
   --margin: 1.20cm;
   --height: 29.7cm;
   --offset: calc(var(--margin) * 2);
+  --md-text-font: 'PT Astra Serif';
 }
 
+@font-face {
+    font-family: 'PT Astra Serif';
+    src: url('/assets/fonts/PTAstraSerif-Regular.woff') format('woff'),
+         url('/assets/fonts/PTAstraSerif-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
 @page {
-  size: A4;
-  margin: 1.20cm;
+  size: A4;           /* Формат страницы */
+  margin: 1.20cm;     /* Поля по умолчанию */
 }
 
 hr:has(+ div.md-source-file), .md-source-file {
@@ -18,12 +27,12 @@ summary::after {
   display: none;
 }
 
-.front-cover {
+.front-cover {                                    /* Высота с учётом полей */
   margin: var(--margin);
   height: calc(var(--height) - var(--offset));
-  page-break-after: always;
+  page-break-after: always;                       /* Разрыв страницы после обложки */
   border: 1px solid #fff;
-  position: relative;
+  position: relative;                             /* Для позиционирования элементов */
 
   img {
     position: absolute;
@@ -88,11 +97,11 @@ h2 {
   string-set: heading content();
   text-align: center;
 }
-p {
-  hyphens: auto;
+p {                      /* Абзацы */
+  hyphens: auto;        /* Перенос слов */
   margin: 0;
-  text-align: justify;
-  text-indent: 1em;
+  text-align: justify;  /* Выравнивание по ширине */
+  text-indent: 2em;     /* Красная строка */
 }
 dd {
   margin: 0 0 0 1em;
@@ -103,14 +112,14 @@ br::after {
   width: 0.78em;
 }
 
-#authors {
+#authors { /* Отдельные страницы без колонтитулов */
   page: clean;
 }
 #authors p {
   text-indent: 0;
 }
 
-#contents {
+#contents { /* Отдельные страницы без колонтитулов */
   page: clean;
 }
 #contents p {
@@ -129,7 +138,7 @@ br::after {
   color: inherit;
   text-decoration: none;
 }
-#contents a::before {
+#contents a::before {              /* Оглавление */
   content: target-text(attr(href)) ' ' leader('.') ' ' target-counter(attr(href), page);
 }
 
