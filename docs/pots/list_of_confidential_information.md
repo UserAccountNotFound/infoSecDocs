@@ -14,12 +14,6 @@ order_date: '18.04.2024'
 ## 1.	Производственно-экономическая и технологическая информация
 
 <table class="listing-confidential-info">
-    <colgroup>
-        <col> <!-- № п/п -->
-        <col> <!-- Информация -->
-        <col> <!-- Гриф -->
-        <col> <!-- Срок -->
-    </colgroup>
     <thead>
         <tr>
             <th >№<br>п\п</th>

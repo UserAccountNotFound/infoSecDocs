@@ -54,47 +54,63 @@
 /* Специальные стили для таблицы Перечня информации КТ-КИ-ПД*/
 .listing-confidential-info {
     width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Фиксированная ширина колонок */
 }
 
-/* Эффект при наведении на строку */
-.listing-confidential-info tbody tr:hover {
-    background-color: #f9f9f9;
+/* Заголовки (th) */
+.listing-confidential-info th {
+    font-weight: 700;
+    padding: 0.9375em 0.1em;
+    background-color: var(--md-default-bg-color--light);
+    border: 1px solid #d0d0d0;
+    text-align: center;
 }
 
-/* Четкие линии между строками */
-.listing-confidential-info tbody tr {
-    border-bottom: 2px solid #e0e0e0;
+/* Ячейки (td) */
+.listing-confidential-info td {
+    padding: 0.9375em 0.1em;
+    border: 1px solid #e0e0e0;
+    word-break: break-word;
+    hyphens: auto;
 }
 
-/* Усиленные границы для заголовков */
-.listing-confidential-info thead tr {
-    border-bottom: 2px solid #d0d0d0;
-}
-
-.listing-confidential-info colgroup col:nth-child(1) { width: 5%; min-width: 40px; }
-.listing-confidential-info colgroup col:nth-child(2) { width: 55%; }
-.listing-confidential-info colgroup col:nth-child(3) { width: 20%; }
-.listing-confidential-info colgroup col:nth-child(4) { width: 20%; }
-
-/*варавнивание текста в колонках*/
+/* Ширина колонок */
 .listing-confidential-info th:nth-child(1),
 .listing-confidential-info td:nth-child(1) {
+    width: 7%;
+    min-width: 50px;
     text-align: center;
+}
+
+.listing-confidential-info th:nth-child(2),
+.listing-confidential-info td:nth-child(2) {
+    width: 53%;
 }
 
 .listing-confidential-info th:nth-child(3),
 .listing-confidential-info td:nth-child(3) {
+    width: 20%;
     text-align: center;
 }
 
 .listing-confidential-info th:nth-child(4),
 .listing-confidential-info td:nth-child(4) {
+    width: 20%;
     text-align: center;
 }
 
-/* Перенос длинных слов */
-.listing-confidential-info td{
-    word-break: break-word;
-    hyphens: auto;
+/* Эффекты при наведении */
+.listing-confidential-info tbody tr:hover {
+    background-color: #f9f9f9;
 }
 
+/* Границы между строками */
+.listing-confidential-info tbody tr {
+    border-bottom: 2px solid #e0e0e0;
+}
+
+/* Усиленные границы заголовков */
+.listing-confidential-info thead tr {
+    border-bottom: 2px solid #d0d0d0;
+}
