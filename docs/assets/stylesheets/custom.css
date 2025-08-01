@@ -1,0 +1,100 @@
+/* Указатель используемых шрифтов для блоков MkDocs */
+/* начертание и размещение локальных шрифтов в fonts.css*/
+:root {
+  --md-text-font: "PT-Root-UI";
+  --md-code-font: "PT-Mono";
+}
+
+
+/* Переопределение стандартных стилей MkDocs для таблиц */
+.md-typeset table:not([class]) {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Ключевое свойство для контроля ширины */
+    display: table;
+}
+
+.md-typeset table:not([class]) th {
+    font-weight: 700;
+    min-width: 5rem;
+    padding: .9375em 1.25em;
+    vertical-align: top;
+    background-color: var(--md-default-bg-color--light);
+    text-align: center;
+    box-sizing: border-box; /* Учитываем padding в общей ширине */
+}
+
+.md-typeset table:not([class]) td {
+    padding: .9375em 1.25em;
+    vertical-align: top;
+    box-sizing: border-box;
+    word-wrap: break-word;
+}
+
+.md-typeset table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    border: 1px solid #e0e0e0; /* Внешняя граница таблицы */
+}
+
+.md-typeset table th {
+    vertical-align: top;
+    background-color: #f5f5f5; /* Серый фон для заголовков */
+    border: 1px solid #d0d0d0; /* Границы ячеек */
+    color: #333; /* Цвет текста */
+}
+
+.md-typeset table td {
+    vertical-align: top;
+    border: 1px solid #e0e0e0; /* Границы ячеек */
+}
+
+
+/* Специальные стили для таблицы Перечня информации КТ-КИ-ПД*/
+.listing-confidential-info {
+    width: 100%;
+}
+
+/* Эффект при наведении на строку */
+.listing-confidential-info tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Четкие линии между строками */
+.listing-confidential-info tbody tr {
+    border-bottom: 2px solid #e0e0e0;
+}
+
+/* Усиленные границы для заголовков */
+.listing-confidential-info thead tr {
+    border-bottom: 2px solid #d0d0d0;
+}
+
+.listing-confidential-info colgroup col:nth-child(1) { width: 5%; min-width: 40px; }
+.listing-confidential-info colgroup col:nth-child(2) { width: 55%; }
+.listing-confidential-info colgroup col:nth-child(3) { width: 20%; }
+.listing-confidential-info colgroup col:nth-child(4) { width: 20%; }
+
+/*варавнивание текста в колонках*/
+.listing-confidential-info th:nth-child(1),
+.listing-confidential-info td:nth-child(1) {
+    text-align: center;
+}
+
+.listing-confidential-info th:nth-child(3),
+.listing-confidential-info td:nth-child(3) {
+    text-align: center;
+}
+
+.listing-confidential-info th:nth-child(4),
+.listing-confidential-info td:nth-child(4) {
+    text-align: center;
+}
+
+/* Перенос длинных слов */
+.listing-confidential-info td{
+    word-break: break-word;
+    hyphens: auto;
+}
+

@@ -1,0 +1,142 @@
+:root {
+  --width: 21cm;
+  --margin: 1.20cm;
+  --height: 29.7cm;
+  --offset: calc(var(--margin) * 2);
+  --md-text-font: 'PT-Astra-Serif';
+}
+
+@page {
+  size: A4;           /* Формат страницы */
+  margin: 1.20cm;     /* Поля по умолчанию */
+  @bottom-center {
+    content: 'Лист ' counter(page) ' из ' counter(pages);
+  }
+}
+
+hr:has(+ div.md-source-file), .md-source-file {
+  display: none !important;
+}
+
+summary::after {
+  display: none;
+}
+
+.front-cover {                                    /* Высота с учётом полей */
+  margin: var(--margin);
+  height: calc(var(--height) - var(--offset));
+  page-break-after: always;                       /* Разрыв страницы после обложки */
+  border: 1px solid #fff;
+  position: relative;                             /* Для позиционирования элементов */
+
+  img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    image-rendering: optimizeQuality;
+  }
+
+  > section {
+    color: #fff;
+    padding: 0.635cm;
+    max-width: 10.25cm;
+    word-wrap: break-word;
+    margin-top: calc(var(--height) / 2 - var(--offset) - 2cm);
+    font-size: 13pt;
+
+    > .title {
+      font-size: 26pt;
+      font-weight: 500;
+      line-height: 1.1;
+      color: #fff;
+    }
+  }
+}
+
+h1, h2, h3 {
+  string-set: chapter content();
+}
+
+body {
+  print-color-adjust: exact;
+  text-rendering: geometricPrecision;
+}
+
+.md-main .md-main__inner {
+  margin: 0;
+}
+
+.md-content .md-content__inner {
+  margin: 0;
+  padding: 0;
+
+  &::before {
+    height: 0;
+  }
+}
+
+h1 {
+  break-after: right;
+  font-size: 2.6em;
+  font-weight: normal;
+  margin: 3em 0;
+
+}
+h2 {
+  font-size: 1em;
+  font-variant: small-caps;
+  font-weight: normal;
+  margin: 0 0 2em;
+
+  string-set: heading content();
+  text-align: center;
+}
+p {                      /* Абзацы */
+  hyphens: auto;        /* Перенос слов */
+  margin: 0;
+  text-align: justify;  /* Выравнивание по ширине */
+  text-indent: 2em;     /* Красная строка */
+}
+dd {
+  margin: 0 0 0 1em;
+}
+br::after {
+  content: '';
+  display: inline-block;
+  width: 0.78em;
+}
+
+#authors { /* Отдельные страницы без колонтитулов */
+  page: clean;
+}
+#authors p {
+  text-indent: 0;
+}
+
+#contents { /* Отдельные страницы без колонтитулов */
+  page: clean;
+}
+#contents p {
+  margin: 2em 0;
+  text-indent: 0;
+}
+#contents ul {
+  display: block;
+  margin: 1em 0;
+  padding: 0;
+}
+#contents li {
+  display: block;
+}
+#contents a {
+  color: inherit;
+  text-decoration: none;
+}
+#contents a::before {              /* Оглавление */
+  content: target-text(attr(href)) ' ' leader('.') ' ' target-counter(attr(href), page);
+}
+
+.fullpage {
+  display: none;
+}

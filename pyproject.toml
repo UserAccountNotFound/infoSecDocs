@@ -3,22 +3,23 @@ requires = ["poetry-core>=2.1.3"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
-package-mode = false
-name = "docsite-InfoSec"
-version = "1.2.1"
+name = "NonBreakingSpace"
+version = "1.0.1"
 repository = "https://git.gsp.local/cyberSecurity/docsite"
-keywords = ["mkdocs", "pdf", "exporter"]
-description = "A database of regulatory documents in the field of Information security and engineering and technical security equipment, with the ability to export templated documents to PDF."
-authors = ["Mike Petrov <petrov.ms@gazprom-shelfproject.ru>"]
-readme = "README.md"
+keywords = ["mkdocs", "pdf", "html", "Russian Language"]
+description = "A plugin that ensures the implementation of the rules of the Russian language in part, correcting hanging lines"
+authors = ["Mike Petrov <msp@netgroup.su>"]
+
 classifiers = [
   "License :: OSI Approved :: Apache License 2.0 ",
   "Operating System :: OS Independent",
   "Programming Language :: Python :: 3",
   "Topic :: Documentation",
-  "Topic :: Regulatory framework :: Documentation",
+  "Topic :: GOST :: Documentation",
   "Topic :: Text Processing :: Markup :: HTML",
 ]
+
+packages = [{include = "mkdocs_text_handlers"}]
 
 [tool.poetry.dependencies]
 mkdocs-exporter = "^6.2.0"
@@ -32,6 +33,7 @@ pypdf = ">=5.8.0"
 
 [tool.poetry.plugins."mkdocs.plugins"]
 "exporter" = "mkdocs_exporter.plugin:Plugin"
+"NonBreakingSpace" = "mkdocs_text_handlers.plugin:NonBreakingSpacePlugin"
 
 [tool.poetry.urls]
 "Bug Tracker" = "https://git.gsp.local/msp/docsite/issues"

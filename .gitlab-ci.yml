@@ -8,16 +8,18 @@ variables:
   SSH_PORT: "22"  # Порт SSH 
   REMOTE_PATH: "/srv/www/infosec.esu.gsp.local" # Путь на удалённом хосте, куда копировать
 
-cache:
-  paths:
-    - public/
+#cache:
+#  paths:
+#    - public/
 
 deploy_to_APP-01:
   stage: deploy
-  #only:
-  #  changes:
-  #    - public/**/*  # Триггер только при изменениях в папке public
-  when: manual
+  only:
+#    - /^main$/
+    changes:
+      - public/**/*  # Триггер только при изменениях в папке public
+
+  #when: manual
   before_script:
     - apk update && apk add openssh-client  # Установка SSH-клиента
     - mkdir -p ~/.ssh

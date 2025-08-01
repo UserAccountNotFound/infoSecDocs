@@ -43,9 +43,8 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Переключиться на светлую тему
-  font:
-    text: Roboto
-    code: Roboto Mono
+  font: false           # Запрет использования шрифтов Google
+
 
 # Расширения для Markdown
 markdown_extensions:
@@ -133,7 +132,7 @@ plugins:
           browser:
             timeout: 120000 # отключение таймаута, чтоб mkdocs не падал в ошибку при генерации больших PDF
           stylesheets:
-            - resources_to_PDF/stylesheets/pdf.scss
+            - resources_to_PDF/stylesheets/pdf-GOST.scss
           covers:
             front: resources_to_PDF/covers/front.html.j2
             back: resources_to_PDF/covers/back.html.j2
@@ -150,6 +149,13 @@ plugins:
   - awesome-pages
   - macros:
       include_dir: snippets # Для одинаковых фрагментов документов
+      
+#textHandlers:
+#  - search
+  - NonBreakingSpace:  # обработчик "висячих" строк
+#      custom_dir: textHandlers/
+      enabled: true
+
 
 
 # Секция для мультиязычности
@@ -173,6 +179,7 @@ extra:
 
 extra_css:
   - assets/stylesheets/custom.css
+  - assets/stylesheets/fonts.css
   - https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css 
 
 extra_javascript:

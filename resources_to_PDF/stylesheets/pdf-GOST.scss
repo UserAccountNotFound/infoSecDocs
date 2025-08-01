@@ -3,20 +3,15 @@
   --margin: 1.20cm;
   --height: 29.7cm;
   --offset: calc(var(--margin) * 2);
-  --md-text-font: 'PT Astra Serif';
+  --md-text-font: 'PT-Astra-Serif';
 }
-
-@font-face {
-    font-family: 'PT Astra Serif';
-    src: url('/assets/fonts/PTAstraSerif-Regular.woff') format('woff'),
-         url('/assets/fonts/PTAstraSerif-Bold.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
 
 @page {
   size: A4;           /* Формат страницы */
   margin: 1.20cm;     /* Поля по умолчанию */
+  @bottom-center {
+    content: 'Лист ' counter(page) ' из ' counter(pages);
+  }
 }
 
 hr:has(+ div.md-source-file), .md-source-file {
@@ -82,12 +77,13 @@ body {
 }
 
 h1 {
-  break-after: right;
+  text-align: center;
+  /*break-after: right;*/
   font-size: 2.6em;
   font-weight: normal;
   margin: 3em 0;
-
 }
+
 h2 {
   font-size: 1em;
   font-variant: small-caps;
@@ -101,7 +97,7 @@ p {                      /* Абзацы */
   hyphens: auto;        /* Перенос слов */
   margin: 0;
   text-align: justify;  /* Выравнивание по ширине */
-  text-indent: 2em;     /* Красная строка */
+  text-indent: 1.25cm;     /* Красная строка */
 }
 dd {
   margin: 0 0 0 1em;
