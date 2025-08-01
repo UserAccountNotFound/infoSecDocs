@@ -8,7 +8,7 @@ version = "1.0.1"
 repository = "https://git.gsp.local/cyberSecurity/docsite"
 keywords = ["mkdocs", "pdf", "html", "Russian Language"]
 description = "A plugin that ensures the implementation of the rules of the Russian language in part, correcting hanging lines"
-authors = ["Mike Petrov <msp@netgroup.su>"]
+authors = ["msp <msp@netgroup.su>"]
 
 classifiers = [
   "License :: OSI Approved :: Apache License 2.0 ",
