@@ -174,17 +174,17 @@ extra:
 extra_css:
   - assets/stylesheets/custom.css
   - assets/stylesheets/fonts.css
-#  - assets/stylesheets/katex@0.16.22/katex.min.css
+# - assets/stylesheets/katex@0.16.22/katex.min.css
   - https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css 
 
 extra_javascript:
-#  - assets/scripts/katex@0.16.22/katex.min.js
-#  - assets/scripts/katex@0.16.22/auto-render.min.js
+  - assets/scripts/katex@0.16.22/katex.min.js
+  - assets/scripts/katex@0.16.22/auto-render.min.js
 #  - assets/scripts/mathjax/3.2.2/tex-mml-chtml.min.js
   - assets/scripts/mermaid/11.9.0/mermaid.min.js
   - assets/scripts/mkdocs-exporter.js
-  - https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js
-  - https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js
+#  - https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js
+#  - https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js
 #  - https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.9.0/mermaid.min.js
 
