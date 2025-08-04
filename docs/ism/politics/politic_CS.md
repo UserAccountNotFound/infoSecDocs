@@ -2,6 +2,8 @@
 pdf: true
 doc_type: 'Политика'
 doc_version: '1.0.0'
+order: '162'
+order_date: '18.04.2024'
 ---
 ###### # Cyber Security Policy
 
