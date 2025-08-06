@@ -5,6 +5,10 @@
   --md-code-font: "PT-Mono";
 }
 
+/* ширина страницы? по умолчанию 800*/
+.md-grid {
+  max-width: 1440px; 
+}
 
 /* Переопределение стандартных стилей MkDocs для таблиц */
 .md-typeset table:not([class]) {
