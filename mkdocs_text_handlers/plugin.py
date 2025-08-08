@@ -5,7 +5,7 @@ import re
 class NonBreakingSpacePlugin(BasePlugin):
     config_scheme = (
         ('enabled', Type(bool, default=True)),
-        ('prepositions', Type(list, default=['АО', 'ООО','ПАО', 'а', 'в', '(в','на', 'и', 'о', 'к', 'с', 'со','за', '(за', 'об', 'не', '№', '"О', '«О', 'ее', 'её'])),
+        ('prepositions', Type(list, default=['АО', 'ООО','ПАО', 'а', 'в', '(в','на', 'и', 'о', 'от', 'по', 'к', 'с', 'со','за', '(за', 'об', 'не', '№', '"О', '«О', 'ее', 'её'])),
     )
     
     def on_page_content(self, html, page, config, files):
