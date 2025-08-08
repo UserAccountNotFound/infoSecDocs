@@ -1,6 +1,7 @@
 <style data-teleport="head">
   .front-cover {
     margin: var(--margin);
+    margin-left: 3cm;
     height: calc(var(--height) - var(--offset));
     page-break-after: always;
     border: 1px solid #fff;
@@ -14,18 +15,33 @@
       image-rendering: optimizeQuality;
     }
 
-    .approval {
+    /* Cтили для углового штампа */
+    .angle-stamp {
       position: absolute;
-      top: 0.635cm;
-      right: 0.635cm;
-      color: #fff;
-      font-size: 10pt;
-      text-align: right;
-      font-family: monospace;
+      top: var(--margin);
+      right: var(--margin);
+      width: 7cm;
+      padding: 0.5cm 0 0 0.5cm;
+      font-size: 14pt;
+
     }
 
+    .angle-stamp::before {
+      content: "УТВЕРЖДЕНО";
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.3cm;
+    }
+
+    .angle-stamp p {
+      margin: 0;
+      text-indent: 0;
+      text-align: left;
+    }
+
+
     section {
-      color: #fff;
+      color: #000;
       padding: 0.635cm;
       width: 100%;
       max-width: none;
@@ -39,11 +55,11 @@
       box-sizing: border-box;
 
       > .title {
-        font-size: 32pt;
+        font-size: 28pt;
         font-weight: 500;
         line-height: 1.1;
         margin-top: 1em;
-        color: #fff;
+        color: #000;
         string-set: title content(text);
         width: 100%;
         text-align: center;
@@ -54,7 +70,7 @@
       > .version {
         line-height: 1;
         font-size: 10pt;
-        font-family: monospace;
+        font-family: PT-Astra-Serif;
         text-align: center;
       }
     }
@@ -70,7 +86,7 @@
 
   @page :first {
     margin: 0;
-    background: var(--md-primary-fg-color);
+    background: #fff;
 
     @top-center {
       content: none;
@@ -83,12 +99,20 @@
 </style>
 
 <div class="front-cover">
-  <div class="approval">Утверждено приказом: {{ order }} от {{ order_date }}</div>
-  
+
+  <div class="angle-stamp">
+    <p>Приказом</p>
+    <p>АО «Газпром шельфпроект»</p>
+    <p>от {{ order_date }} № {{ order }} </p>
+    <br>
+    <p>Редакция: {{ doc_version }} </p>
+  </div>
+ 
   <section>
     <div class="brand">{{ unit.brand }}</div>
     <div class="department">{{ config.site_name }}</div>
     <div class="title">{{ page.title }}</div>
-    <div class="version">{{ doc_version }}</div>
+ 
   </section>
+
 </div>

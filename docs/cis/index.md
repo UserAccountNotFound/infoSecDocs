@@ -3,8 +3,12 @@ hide:
   - navigation
 ---
 
-## Critical Infrastructure Sectors
+
 # Контроль безопасности объектов критической информационной инфраструктуры
+
+Critical Infrastructure Sectors
+
 
 
 Раздел в процессе наполнения....
+

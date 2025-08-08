@@ -35,13 +35,13 @@ theme:
       primary: 'indigo'
       accent: 'indigo'
       toggle:
-        icon: material/brightness-7
+        icon: material/weather-night
         name: Переключиться на темную тему
     - scheme: slate # Темная тема
       primary: 'indigo'
       accent: 'indigo'
       toggle:
-        icon: material/brightness-4
+        icon: material/weather-sunny
         name: Переключиться на светлую тему
   font: false           # Запрет использования шрифтов Google
 
@@ -105,7 +105,7 @@ plugins:
             show_root_heading: true
   - redirects:
       redirect_maps:
-        'index.md': 'ism/home.md'
+        'index.md': 'ism/politics/information_security_policy.md'
   - git-revision-date-localized:
       enable_creation_date: false
   - minify:                           # Минификация HTML
@@ -134,7 +134,7 @@ plugins:
           stylesheets:
             - resources_to_PDF/stylesheets/pdf-GOST.scss
           covers:
-            front: resources_to_PDF/covers/front.html.j2
+            front: resources_to_PDF/covers/front-ESKD.html.j2
             back: resources_to_PDF/covers/back.html.j2
           aggregator:
             enabled: false
@@ -175,18 +175,23 @@ extra_css:
   - assets/stylesheets/custom.css
   - assets/stylesheets/fonts.css
 # - assets/stylesheets/katex@0.16.22/katex.min.css
-  - https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css 
+#  - https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css
+  - https://unpkg.com/katex@latest/dist/katex.min.css
 
 extra_javascript:
-  - assets/scripts/katex@0.16.22/katex.min.js
-  - assets/scripts/katex@0.16.22/auto-render.min.js
+#  - assets/scripts/katex@0.16.22/katex.min.js
+#  - assets/scripts/katex@0.16.22/auto-render.min.js
 #  - assets/scripts/mathjax/3.2.2/tex-mml-chtml.min.js
-  - assets/scripts/mermaid/11.9.0/mermaid.min.js
+#  - assets/scripts/mermaid/11.9.0/mermaid.min.js
   - assets/scripts/mkdocs-exporter.js
+  - assets/scripts/feedback.livechat.js
 #  - https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js
+  - https://unpkg.com/katex@latest/dist/katex.min.js
 #  - https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js
+  - https://unpkg.com/katex@latest/dist/contrib/auto-render.min.js
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js
 #  - https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.9.0/mermaid.min.js
+  - https://unpkg.com/mermaid@latest/dist/mermaid.min.js
 
 
 copyright: Отдел информационной безопасности &copy; 2023-2025

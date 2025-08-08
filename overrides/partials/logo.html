@@ -1,0 +1,7 @@
+<a href="https://portal.gazprom-shelfproject.ru" class="md-logo md-header__button" title="Корпоративный портал АО Газпром шельфпроект">
+    {% if config.theme.logo.icon %}
+        <i class="md-icon">{{ config.theme.logo.icon }}</i>
+    {% else %}
+        <img src="{{ config.theme.logo | url }}" alt="{{ config.site_name }}" />
+    {% endif %}
+</a>

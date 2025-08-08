@@ -1,4 +1,3 @@
 nav:
-  - 'Политика ИБ': 'politic_CS.md'
-  - 'Политика ИБ АСУ ТП': 'politic_ACSC.md'
-  - ...
+  - 'Политика ИБ': 'information_security_policy.md'
+  - 'Политика ИБ АСУ ТП': 'information_security_policy_of_automated_process_control_systems.md'

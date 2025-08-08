@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {# Сохраняем оригинальное содержимое #}
+  {% set content = super() %}
+
+  {# Разделяем содержимое по первому h1 #}
+  {% set parts = content.split('<h1') %}
+  
+  {# Первая часть (до h1) #}
+  {{ parts[0] | safe }}
+
+  {# Если найден h1 #}
+  {% if parts|length > 1 %}
+    {# Вставляем h1 #}
+    <h1{{ parts[1].split('</h1>')[0] }}</h1>
+
+    {# Вставляем оглавление после h1 #}
+    {% if page.toc %}
+    <div class="doc-toc">
+      <h2 class="doc-toc__title">Оглавление</h2>
+      <nav class="doc-toc__nav" aria-label="Оглавление документа">
+        <ul class="doc-toc__list">
+          {% for toc_item in page.toc %}
+            {% for child in toc_item.children %}
+              <li class="doc-toc__item">
+                <a href="{{ child.url }}" class="doc-toc__link">
+                  {{ child.title }}
+                </a>
+              </li>
+            {% endfor %}
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+    {% endif %}
+
+    {# Вставляем оставшуюся часть контента #}
+    {{ parts[1].split('</h1>')[1] | safe }}
+  {% else %}
+    {# Если h1 не найден, вставляем весь контент как есть #}
+    {{ content | safe }}
+  {% endif %}
+{% endblock %}

@@ -1,50 +1,56 @@
+/* Основные переменные для размера страницы и полей */
 :root {
-  --width: 21cm;
-  --margin: 1.20cm;
-  --height: 29.7cm;
-  --offset: calc(var(--margin) * 2);
-  --md-text-font: 'PT-Astra-Serif';
+  --width: 21cm;         // Ширина страницы A4
+  --margin: 1.20cm;      // Стандартный размер полей
+  --height: 29.7cm;      // Высота страницы A4
+  --offset: calc(var(--margin) * 2);  // Двойной отступ
+  --md-text-font: 'PT-Astra-Serif';  // Основной шрифт
 }
 
+/* Настройки страницы для печати */
 @page {
-  size: A4;           /* Формат страницы */
-  margin: 1.20cm;     /* Поля по умолчанию */
+  size: A4;              // Формат бумаги
+  margin: 1.20cm;        // Основные поля
+  margin-left: 3cm;      // Увеличенное левое поле (для переплета)
   @bottom-center {
-    content: 'Лист ' counter(page) ' из ' counter(pages);
+    content: 'Лист ' counter(page) ' из ' counter(pages);  // Нумерация страниц
   }
 }
 
+/* Скрытие элементов управления версиями */
 hr:has(+ div.md-source-file), .md-source-file {
   display: none !important;
 }
 
+/* Удаление стандартного маркера у summary */
 summary::after {
   display: none;
 }
 
-.front-cover {                                    /* Высота с учётом полей */
+/* Стили для титульной страницы */
+.front-cover {
   margin: var(--margin);
   height: calc(var(--height) - var(--offset));
-  page-break-after: always;                       /* Разрыв страницы после обложки */
+  page-break-after: always;  // Обязательный разрыв после обложки
   border: 1px solid #fff;
-  position: relative;                             /* Для позиционирования элементов */
-
+  position: relative;       // Для абсолютного позиционирования элементов
+  
   img {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    image-rendering: optimizeQuality;
+    image-rendering: optimizeQuality;  // Качественный рендеринг изображения
   }
-
+  
   > section {
     color: #fff;
     padding: 0.635cm;
     max-width: 10.25cm;
     word-wrap: break-word;
-    margin-top: calc(var(--height) / 2 - var(--offset) - 2cm);
+    margin-top: calc(var(--height) / 2 - var(--offset) - 2cm);  // Вертикальное центрирование
     font-size: 13pt;
-
+    
     > .title {
       font-size: 26pt;
       font-weight: 500;
@@ -54,15 +60,18 @@ summary::after {
   }
 }
 
+/* Настройки заголовков для PDF */
 h1, h2, h3 {
-  string-set: chapter content();
+  string-set: chapter content();  // Захват текста заголовков для PDF
 }
 
+/* Основные настройки документа */
 body {
-  print-color-adjust: exact;
-  text-rendering: geometricPrecision;
+  print-color-adjust: exact;     // Точная цветопередача при печати
+  text-rendering: geometricPrecision;  // Качественный рендеринг текста
 }
 
+/* Убираем отступы у основных контейнеров */
 .md-main .md-main__inner {
   margin: 0;
 }
@@ -70,74 +79,97 @@ body {
 .md-content .md-content__inner {
   margin: 0;
   padding: 0;
-
+  
   &::before {
     height: 0;
   }
 }
 
+/* Скрываем первый заголовок h1 в PDF */
+.md-content__inner h1:first-of-type {
+  display: none;
+}
+
+/* Стили заголовков */
 h1 {
   text-align: center;
-  /*break-after: right;*/
   font-size: 2.6em;
   font-weight: normal;
-  margin: 3em 0;
+  margin: 3em 0;  // Большие отступы вокруг h1
 }
 
 h2 {
   font-size: 1em;
-  font-variant: small-caps;
+  font-variant: small-caps;  // Капитель для h2
   font-weight: normal;
   margin: 0 0 2em;
-
   string-set: heading content();
   text-align: center;
 }
-p {                      /* Абзацы */
-  hyphens: auto;        /* Перенос слов */
+
+/* Стили абзацев */
+p {
+  hyphens: auto;       // Автоматические переносы
   margin: 0;
-  text-align: justify;  /* Выравнивание по ширине */
-  text-indent: 1.25cm;     /* Красная строка */
+  text-align: justify; // Выравнивание по ширине
+  text-indent: 1.25cm; // Красная строка
 }
+
+/* Стили определений */
 dd {
   margin: 0 0 0 1em;
 }
+
+/* Настройка переносов после br */
 br::after {
   content: '';
   display: inline-block;
   width: 0.78em;
 }
 
-#authors { /* Отдельные страницы без колонтитулов */
-  page: clean;
+/* Стили для страниц с авторами */
+#authors {
+  page: clean;  // Страницы без колонтитулов
 }
 #authors p {
-  text-indent: 0;
+  text-indent: 0;  // Без красной строки
 }
 
-#contents { /* Отдельные страницы без колонтитулов */
-  page: clean;
+/* Стили оглавления */
+.doc-toc {
+  page: clean;  // Страницы без колонтитулов
 }
-#contents p {
+
+#doc-toc__title {
   margin: 2em 0;
   text-indent: 0;
 }
-#contents ul {
+
+#doc-toc__list {
   display: block;
   margin: 1em 0;
   padding: 0;
 }
-#contents li {
+
+.doc-toc__item {
   display: block;
+  text-indent: 0;      /* Обнуление красной строки */
 }
-#contents a {
+
+
+
+.doc-toc__link {
   color: inherit;
   text-decoration: none;
 }
-#contents a::before {              /* Оглавление */
-  content: target-text(attr(href)) ' ' leader('.') ' ' target-counter(attr(href), page);
+
+.doc-toc__link:hover {
+  color: var(--md-accent-fg-color);  // Изменение цвета при наведении
+  text-decoration: underline;
 }
 
-.fullpage {
-  display: none;
+/* Форматирование оглавления */ /* И НИ ХУЯ не РАБОТАЕТ*/
+#doc-toc__link::before {
+  content: target-text(attr(href)) ' ' leader('.') ' ' target-counter(attr(href), page) !important;
+  /* Формат: "Название раздела ...... номер страницы" */
 }

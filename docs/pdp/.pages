@@ -1,5 +1,4 @@
 nav:
   - 'Обработка персональных данных': 'description_pdp.md'
-  - 'Политика обработки персональных данных': 'policy_PDP.md'
-  - 'Регламент обработки персональных данных': 'regulation_PDP.md'
-  - ...
+  - 'Политика обработки персональных данных': 'personal_data_processing_policy.md'
+  - 'Регламент обработки персональных данных': 'personal_data_processing_regulation_PDP.md'

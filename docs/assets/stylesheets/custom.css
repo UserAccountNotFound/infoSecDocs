@@ -5,16 +5,29 @@
   --md-code-font: "PT-Mono";
 }
 
-/* ширина страницы? по умолчанию 800*/
+/* ширина страницы? по умолчанию 800 ? дает довольно странные результаты !!!
 .md-grid {
   max-width: 1440px; 
+} */
+
+/* Скрываем оглавление в веб-морде */
+.doc-toc {
+  display: none;
 }
+
+/* Стили для PDF (переопределятся при экспорте) */
+@media print {
+  .doc-toc {
+    display: block !important;
+  }
+}
+
 
 /* Переопределение стандартных стилей MkDocs для таблиц */
 .md-typeset table:not([class]) {
     width: 100%;
     border-collapse: collapse;
-    table-layout: fixed; /* Ключевое свойство для контроля ширины */
+    table-layout: fixed; /* Ключевое свойство контроля ширины */
     display: table;
 }
 
@@ -25,7 +38,7 @@
     vertical-align: top;
     background-color: var(--md-default-bg-color--light);
     text-align: center;
-    box-sizing: border-box; /* Учитываем padding в общей ширине */
+    box-sizing: border-box;      /* Учитываем padding в общей ширине */
 }
 
 .md-typeset table:not([class]) td {
@@ -59,7 +72,7 @@
 .listing-confidential-info {
     width: 100%;
     border-collapse: collapse;
-    table-layout: fixed; /* Фиксированная ширина колонок */
+    table-layout: fixed;            /* Фиксированная ширина колонок */
 }
 
 /* Заголовки (th) */
@@ -117,4 +130,18 @@
 /* Усиленные границы заголовков */
 .listing-confidential-info thead tr {
     border-bottom: 2px solid #d0d0d0;
+}
+
+
+/* Специальные стили для таблиц - с содержимым аутентичным печатным документам*/
+.authentic-printed-documents {
+    width: 100%;
+    border: 1px solid #000; 
+    padding: 10px; 
+    margin: 10px 0;
+    font-family: 'PT Astra Serif'; 
+    font-size: .8rem; 
+}
+.authentic-printed-documents tr {
+table-layout: fixed;
 }

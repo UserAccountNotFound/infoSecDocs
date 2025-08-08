@@ -16,10 +16,11 @@ deploy_to_APP-01:
   stage: deploy
   only:
 #    - /^main$/
+#    - merge_requests
     changes:
       - public/**/*  # Триггер только при изменениях в папке public
-
   #when: manual
+  
   before_script:
     - apk update && apk add openssh-client  # Установка SSH-клиента
     - mkdir -p ~/.ssh
