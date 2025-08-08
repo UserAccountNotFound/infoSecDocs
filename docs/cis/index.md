@@ -9,6 +9,6 @@ hide:
 Critical Infrastructure Sectors
 
 
-
-Раздел в процессе наполнения....
+!!! Note
+    Раздел в процессе наполнения....
 
